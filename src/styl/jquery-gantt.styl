@@ -1,0 +1,215 @@
+$bg = #34495e;
+$border-color = #bec5cc;
+$yellow = #f1c40f;
+
+.gantt-wrapper
+    display flex
+    flex-flow row nowrap
+    justify-content space-between
+    .arrow
+        background $bg
+        margin-top 30px
+        width 40px
+        height 44px
+        line-height 44px
+        padding 0 15px
+        text-align center
+        display inline-block
+        cursor pointer
+        min-width 44px
+        box-sizing border-box
+        &:hover .arrow-icon
+            opacity .8
+        &:active .arrow-icon
+            opacity .7
+        &.arrow-left
+            border-top-left-radius 3px
+            border-bottom-left-radius 3px
+        &.arrow-right
+            border-top-right-radius 3px
+            border-bottom-right-radius 3px
+            > .arrow-icon
+                transform rotate(180deg)
+        .arrow-icon
+            vertical-align middle
+            display inline-block
+            width 15px
+            height 15px
+            background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPBAMAAADJ+Ih5AAAAMFBMVEUAAAC9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8fy7zHXAAAAD3RSTlMA6cxZIgKzeLcd8LihXwayGyQJAAAAWElEQVQI12NgYDWTFzNlAAKn////f3JgYGCR/w8EIgwMQUAKKBTAYP///7c5//8bMPT//3WB/f//Bgb5/zsZgAwBhv//H4AYH+AicDVwXXBzYCYj7ILbDgA5ekUQVp5MWAAAAABJRU5ErkJggg==') no-repeat
+    .gantt-container
+        overflow hidden
+        position relative
+        border-left 1px solid $border-color
+        border-right 1px solid $border-color
+        border-bottom 1px solid $border-color
+        &.dragging
+            cursor: -webkit-grabbing;
+        .gantt-header-month,
+        .gantt-header-day,
+        .gantt-header-day-min,
+        .gantt-grid-cell
+            text-align center
+            float left
+            box-sizing border-box
+        .gantt-header-days,
+        .gantt-header-months,
+        .gantt-grid-row
+            float left
+        .gantt-header
+            font-size 12px
+            background-color #fff
+            .gantt-header-months
+                background-color #fff
+                .gantt-header-month
+                    width 60px
+                    border-right 1px solid $border-color
+                    line-height 30px
+                    white-space nowrap
+                    overflow hidden
+                    text-align left
+                    padding-left 15px
+                    &:last-child
+                        border-right 0
+            .gantt-header-days
+                float left
+                .gantt-header-day
+                    width 20px
+                    line-height 22px
+                    border-right 1px solid darken($bg, 5%)
+                    background-color $bg
+                    color #fff
+                    &.active
+                        opacity 1
+                        background-color $yellow
+            .gantt-header-days-min
+                .gantt-header-day-min
+                    width 20px
+                    line-height 22px
+                    border-right 1px solid darken($bg, 5%)
+                    color #fff
+                    background-color $bg
+                    color #6e7a87
+                    &.active
+                        opacity 1
+                        background-color $yellow
+        .gantt-grid
+            .gantt-grid-cols
+                .gantt-grid-col
+                    border-right 1px solid #eef1f2
+                    display inline-block
+                    box-sizing border-box
+                    &.active
+                        background-color $yellow
+                        opacity .3
+            .gantt-grid-rows
+                position absolute
+                top 74px
+                z-index -1
+                .gantt-grid-row
+                    width 100%
+                    border-bottom #eef1f2
+                    background #fff
+                    &:nth-of-type(even)
+                        background-color #f4f4f4
+        .gantt-events
+            position absolute
+            top 74px
+            pointer-events none
+            overflow hidden
+            .gantt-event
+                display table
+                padding 6px 0
+                position relative
+                > div
+                    display table-cell
+                    padding-left 10px
+                    vertical-align middle
+                .gantt-event-price
+                    color #27ae60
+                    font-weight 700
+                    font-size 14px
+                .gantt-event-block
+                    cursor pointer
+                    text-align center
+                    padding 8px 0
+                    color #fff
+                    width 300px
+                    border-radius 3px
+                    box-sizing border-box
+                    overflow hidden
+                    white-space nowrap
+                    display block
+                    text-decoration none
+                    pointer-events initial
+                    &.cruise
+                        background-color #9b59b6
+                    &.tourFly
+                        background-color #27ae60
+                    &.tourBus
+                        background-color #e67e22
+                .gantt-event-icon
+                    > .cruise
+                        width 21px
+                        height 24px
+                        background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAYCAMAAAAiV0Z6AAAAflBMVEUAAAC9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8c4IgROAAAAKXRSTlMAVi3wTBYL+8p2Bvbd0b+ifmo8NyEc2cOaj0HjrqiGbkczKBHqYlG1llGWF2MAAADXSURBVCjPpdHJYoMgFIXhCygiIkPAeYiaoeX9X7DGRkuaZf4d3+5w4agoG3jv5PNPlDq3zNi5IkSc+We3QCO/l/5XQd5VRi1OxYtOakbMJ4O9R4HSs/Bb1f2weCT+qDzTX7z6lxjfuE1C7PYlKGCCYc8cmLXwl35iEkFYhLZO+8dcDcCce7YApCT75hB/yXVApsastoronqBJMF0yC7SwvbxRTI0ccLHEdTVeHGBfc0DEkwl4vU6OAYsKoO1YnxieJkNe4lh2iqjLY7Fu7ONujV5f3DQI4AdcWxva6kKLcAAAAABJRU5ErkJggg==')
+                    > .tourFly
+                        width 17px
+                        height 17px
+                        background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAb1BMVEUAAAC9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8cXImY3AAAAJHRSTlMABZv4EdGzq6KVjXRkXQn87uLeu5SRbEA2IRvIqoZ5VVBIMCaNv17HAAAAh0lEQVQYGQXBh0HDQAAAMb2d3iGhd7j9Z0QCAHx/AgC2tfCzfx4AD/XOpua3h+MfdrU6MY73VV2u61oNMA73VdV6AIzDXVW/ABjXqgMAHquaAHisaVNLsLssV5u6eTl3PsE4LqsdpnoCbOsZL3N7gKkvmFoDLOY9vM53ALYf4NYCYPEKTk/4B7gWC+clE1bCAAAAAElFTkSuQmCC')
+                    > .tourBus
+                        width 15px
+                        height 18px
+                        background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAASCAMAAACzQHQ9AAAAWlBMVEUAAAC9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8e9w8eifliYAAAAHXRSTlMA77szDyEK+pnUz611cE7p28jEtmJWOReTfnpmKeF1vCEAAAB3SURBVBgZVcEFEoMwAEXBFwgR3Kn9+1+zHSRTdjnYzXFpw9gZ0w1h4ceVqordrLjBoj81vMo1v1QBQiBpJshqkjZC35J8DPicxMmhPktKWXRjUZx0GkZZVBC18w5j0ePtdXjWsujGYuTNSTIWfMXJyAHNymlu4AstpQwlgaKZBQAAAABJRU5ErkJggg==')
+    .gantt-loading
+      border-radius 50%
+      width 24px
+      height 24px
+      border 0.25rem solid rgba(189, 195, 199, 0.45)
+      border-top-color $bg
+      animation spin 1s infinite linear
+
+.gantt-tooltip
+    color #fff
+    background $bg
+    border-radius 3px
+    padding 10px
+    width 440px
+    position absolute
+    top 0
+    left 0
+    z-index 1
+    .tooltip-content
+        overflow hidden
+        margin-bottom 10px
+        .title
+            display block
+            font-size 16px
+            padding-bottom 5px
+        img
+            float left
+            padding-right 15px
+            width 120px
+            height 90px
+        .desc
+            color #ccc
+    .tooltip-action
+        position relative
+        .price
+            position absolute
+            top -12px
+            right 0
+            font-size 24px
+            .tl
+                font-size 12px
+                text-align center
+
+@keyframes {spin}
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+body .gantt-loading
+  position fixed
+  right 15px
+  top 15px

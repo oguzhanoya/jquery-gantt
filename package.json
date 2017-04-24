@@ -1,0 +1,34 @@
+{
+  "name": "jquery-gantt",
+  "version": "1.0.0",
+  "description": "A simple, lightweight jQuery gantt plugin.",
+  "main": "index.js",
+  "repository": "oguzhanoya/jquery-gantt",
+  "homepage": "https://oguzhanoya.github.io/jquery-gantt",
+  "scripts": {
+    "build:css": "stylus src/styl/jquery-gantt.styl -m -o dist/",
+    "build:js": "rollup -c",
+    "build": "npm run build:css && npm run build:js",
+    "lint": "eslint src",
+    "lint-fix": "eslint --fix src",
+    "compress": "uglifyjs dist/jquery-gantt.js -o dist/jquery-gantt.min.js -c -m --comments /^!/",
+    "prebuild": "npm run lint",
+    "postbuild": "npm run compress",
+    "clean": "rm -rf dist/*"
+  },
+  "author": "oguzhanoya",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "stylus": "^0.54.5",
+    "uglify-js": "^2.8.21",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.2",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}

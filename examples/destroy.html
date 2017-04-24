@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Destroy</title>
+  <link rel="stylesheet" href="../dist/jquery-gantt.css">
+  <!-- Demo stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="demo"></div>
+  <br><br>
+  <button id="btnDestroy">Destroy</button>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="../dist/jquery-gantt.js"></script>
+  <script src="js/demo-events.js"></script>
+  <script>
+
+    var gantt = $('#demo').gantt({
+      data: eventsData,
+      startDate: new Date('2016-07-01'),
+      endDate: new Date('2016-10-01'),
+      onDestroy: function(){
+        alert('plugin destroyed');
+      }
+    });
+
+    steps_api = gantt.data('plugin_Gantt');
+
+    $('#btnDestroy').on('click', function (e) {
+      e.preventDefault();
+      steps_api.destroy();
+		});
+  </script>
+</body>
+</html>

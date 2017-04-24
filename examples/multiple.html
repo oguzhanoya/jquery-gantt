@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Multiple</title>
+  <link rel="stylesheet" href="../dist/jquery-gantt.css">
+  <!-- Demo stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="demo"></div>
+  <br><br><br>
+  <div id="demo2"></div>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="../dist/jquery-gantt.js"></script>
+  <script src="../l10n/jquery-gantt.l10n.ru.js"></script>
+  <script src="../l10n/jquery-gantt.l10n.zh.js"></script>
+  <script src="js/demo-events.js"></script>
+  <script>
+    $('#demo').gantt({
+      data: eventsData,
+      startDate: new Date('2016-07-01'),
+      endDate: new Date('2016-10-01'),
+      language: 'ru'
+    });
+
+     $('#demo2').gantt({
+      data: eventsData2,
+      startDate: new Date('2016-07-01'),
+      endDate: new Date('2016-10-01'),
+      language: 'zh'
+    });
+  </script>
+</body>
+</html>
