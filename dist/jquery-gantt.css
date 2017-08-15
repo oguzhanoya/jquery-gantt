@@ -46,6 +46,7 @@
   border-left: 1px solid #bec5cc;
   border-right: 1px solid #bec5cc;
   border-bottom: 1px solid #bec5cc;
+  z-index: 0;
 }
 .gantt-wrapper .gantt-container.dragging {
   cursor: -webkit-grabbing;
