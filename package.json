@@ -1,9 +1,15 @@
 {
-  "name": "jquery-gantt",
+  "name": "jquery.gantt",
   "version": "1.0.0",
   "description": "A simple, lightweight jQuery gantt plugin.",
-  "main": "index.js",
-  "repository": "oguzhanoya/jquery-gantt",
+  "main": "./dist/jquery-gantt.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oguzhanoya/jquery-gantt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oguzhanoya/jquery-gantt/issues"
+  },
   "homepage": "https://oguzhanoya.github.io/jquery-gantt",
   "scripts": {
     "build:css": "stylus src/styl/jquery-gantt.styl -m -o dist/",

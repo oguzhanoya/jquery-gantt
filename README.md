@@ -14,6 +14,10 @@
 IE11+, Edge, Chrome, Firefox, Opera, Safari
 
 ## Installation
+NPM
+```sh
+npm install jquery.gantt
+```
 Github
 ```sh
 git clone http://github.com/oguzhanoya/jquery-gantt.git
