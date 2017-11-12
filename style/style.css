@@ -1,0 +1,192 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.logo-wrapper {
+    text-align: center;
+    margin: 65px 0;
+}
+
+.logo-desc {
+    color: #ccc;
+    font-weight: 300;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.full {
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+}
+
+.bg {
+    background: #27ae60;
+    width: 110%;
+    height: 500px;
+    position: absolute;
+    top: 460px;
+    left: -10px;
+    -ms-transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+    z-index: -1;
+}
+
+.header {
+    margin: 30px;
+}
+
+.btn {
+    padding: 8px 35px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 100px;
+    background: #1CD8D2;
+    background: -webkit-linear-gradient(to left, #1CD8D2 , #93EDC7);
+    background: linear-gradient(to left, #1CD8D2 , #93EDC7);
+    transition: all 0.3s ease 0s;
+    line-height: normal;
+    border: none;
+}
+
+.btn:hover {
+    background: linear-gradient(to left, #1cd7d1 , #74daae);
+}
+
+.btn:hover a {
+    color: #fff;
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url('img/badge.png') no-repeat;
+    width: 150px;
+    height: 150px;
+}
+
+.github-btns {
+    margin: 25px 0;
+}
+.github-btns a:nth-child(2) {
+    margin: 0 15px;
+}
+
+.github-btns img {
+    position: relative;
+    top: 2px;
+}
+
+#back-top {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+#back-top a {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #bbb;
+
+    /* transition */
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+}
+#back-top a:hover {
+    color: #000;
+}
+
+/* arrow icon (span tag) */
+#back-top span {
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin: 0 auto;
+    background: rgba(52, 73, 94, 0.25) url(../img/top-arrow.svg) no-repeat center center;
+
+    /* rounded corners */
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    /* transition */
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+}
+#back-top a:hover span {
+    background-color: #34495e;
+}
+
+#bg:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 180%;
+    top: 450px;
+    transform: skewY(-4deg);
+    background: rgba(49,218,212,1);
+    background: -moz-linear-gradient(top, rgba(49,218,212,1) 0%, rgba(141,235,201,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(49,218,212,1)), color-stop(100%, rgba(141,235,201,1)));
+    background: -webkit-linear-gradient(top, rgba(49,218,212,1) 0%, rgba(141,235,201,1) 100%);
+    background: -o-linear-gradient(top, rgba(49,218,212,1) 0%, rgba(141,235,201,1) 100%);
+    background: -ms-linear-gradient(top, rgba(49,218,212,1) 0%, rgba(141,235,201,1) 100%);
+    background: linear-gradient(to bottom, rgba(49,218,212,1) 0%, rgba(141,235,201,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#31dad4', endColorstr='#8debc9', GradientType=0 );
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+    .container {
+        width: 360px;
+    }
+    .logo {
+        width: 100%;
+    }
+    .github-btns .btn {
+        display: block;
+    }
+    .github-btns a:nth-child(2) {
+        margin: 15px 0;
+    }
+}

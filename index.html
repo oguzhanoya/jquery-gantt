@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name=referrer content=never>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Lightweight jQuery gantt plugin</title>
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="dist/jquery-gantt.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+    <div id="bg"></div>
+    <div class="container">
+        <div class="logo-wrapper">
+            <a href="/jquery-gantt">
+                <img src="img/logo.svg" alt="jquery gantt" class="logo">
+            </a>
+            <div class="logo-desc">
+                <span>lightweight jQuery gantt plugin</span>
+            </div>
+            <div class="github-btns">
+    			<a title="Follow @oguzhanoya on GitHub" target="_blank" class="btn" href="https://github.com/oguzhanoya">
+                    <img src="img/octoface.svg" alt="github">
+    				<span>Follow</span>
+    			</a>
+    			<a title="Star chmln/flatpickr on GitHub" target="_blank" class="btn" href="https://github.com/oguzhanoya/jquery-gantt">
+    				<img src="img/star.svg" alt="star">
+    				<span>Star!</span>
+    			</a>
+    			<a class="btn" target="_blank" href="https://github.com/oguzhanoya/jquery-gantt/releases">
+    				<img src="img/cloud-download.svg" alt="download">
+    				<span>Download</span>
+    			</a>
+            </div>
+        </div>
+
+        <div id="demo"></div>
+        <div id="demo1"></div>
+
+    </div>
+    <div id="back-top"><a href="#top"><span></span></a></div>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/back-to-top.js"></script>
+    <script src="js/events-data.js"></script>
+    <script src="dist/jquery-gantt.js"></script>
+    <script src="l10n/jquery-gantt.l10n.ru.js"></script>
+    <script>
+        $(function() {
+            //$.fn.gantt.setDefaults({language: 'ru'});
+
+            $('#demo').gantt({
+                data: eventsData,
+                cellWidth: 22,
+                cellHeight: 40,
+                startDate: new Date('2016-07-01'),
+                endDate: new Date('2016-10-25'),
+                stickyHeader: true,
+                // autoHide: true,
+                // language: 'ru'
+            });
+        });
+    </script>
+</body>
+</html>
