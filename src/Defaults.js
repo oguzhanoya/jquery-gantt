@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export default {
   // user defined data array of event [source]
   data: [],
